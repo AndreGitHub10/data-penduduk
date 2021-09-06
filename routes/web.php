@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WargaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('/', function () {
-    return view('welcome');
+    return view('form/form');
 });
 
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('warga', WargaController::class);
+// Route::get('form/form', [App\Http\Controllers\WargaController::class, 'index'])->name('warga');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
