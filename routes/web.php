@@ -20,5 +20,5 @@ Route::get('/', function () {
 
 
 Route::resource('warga', WargaController::class);
-// Route::get('form/form', [App\Http\Controllers\WargaController::class, 'index'])->name('warga');
+Route::get('warga', [WargaController::class, 'index'])->name('warga');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

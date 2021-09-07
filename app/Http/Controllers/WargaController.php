@@ -37,17 +37,15 @@ class WargaController extends Controller
      */
     public function store(Request $request)
     {
-        $warga = new Warga;
-        $warga->nik = "08888"; //$request->nik;
-        $warga->nama = "db"; //$request->nama;
-        $warga->tempat_lahir = "mojosariiii"; //$request->tempat_lahir;
-        $warga->tanggal_lahir = "10-02-1990"; //$request->tanggal_lahir;
-        $warga->kontak = "0000011"; //$request->kontak;
-        $warga->rt = $request->rt;
-        $warga->rw = $request->rw;
-        $warga->save();
-
-        return view('/');
+        $request->validate([
+            'nik' => 'required',
+            'nama' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+        ]);
+        Warga::create($request->all());
+        $warga = Warga::all();
+        return $warga;
     }
 
     /**
@@ -92,6 +90,8 @@ class WargaController extends Controller
      */
     public function destroy(Warga $warga)
     {
-        //
+        $warga->delete();
+
+        return view('table', ['warga' => $warga]);
     }
 }
