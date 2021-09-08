@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WargaController;
+use App\Http\Controllers\RtController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ Route::get('/', function () {
 
 Route::resource('warga', WargaController::class);
 Route::get('warga', [WargaController::class, 'index'])->name('warga');
+Route::get('wargart', [RtController::class, 'index'])->name('wargart');
+Route::get('/create', [WargaController::class, 'create'])->name('create');
+Route::get('/show', [WargaController::class, 'show'])->name('show');
+Route::post('/store', [WargaController::class, 'store'])->name('store');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

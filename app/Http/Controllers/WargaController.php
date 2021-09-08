@@ -16,7 +16,7 @@ class WargaController extends Controller
     public function index()
     {
         $warga = Warga::all();
-        return $warga;
+        return view('table', ['warga' => $warga]);
     }
 
     /**
@@ -26,7 +26,7 @@ class WargaController extends Controller
      */
     public function create(Request $request)
     {
-        return view('warga.create');
+        return view('form/form');
     }
 
     /**
@@ -43,9 +43,18 @@ class WargaController extends Controller
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
         ]);
-        Warga::create($request->all());
-        $warga = Warga::all();
-        return $warga;
+        // Warga::create($request->all());
+        $warga = new Warga;
+        $warga->nik = $request->nik;
+        $warga->nama = $request->nama;
+        $warga->tempat_lahir = $request->tempat_lahir;
+        $warga->tanggal_lahir = $request->tanggal_lahir;
+        $warga->kontak = $request->kontak;
+        $warga->rt = $request->rt;
+        $warga->rw = $request->rw;
+        $warga->save();
+        $warga1 = Warga::all();
+        return view('form/form');
     }
 
     /**
@@ -56,7 +65,8 @@ class WargaController extends Controller
      */
     public function show(Warga $warga)
     {
-        return view('warga.show',compact('post'));
+        $warga1 = Warga::where('id', $warga);
+        return $warga1;
     }
 
     /**
@@ -67,7 +77,7 @@ class WargaController extends Controller
      */
     public function edit(Warga $warga)
     {
-        //
+        return view('update');
     }
 
     /**
@@ -91,7 +101,7 @@ class WargaController extends Controller
     public function destroy(Warga $warga)
     {
         $warga->delete();
-
-        return view('table', ['warga' => $warga]);
+        $warga2 = Warga::all();
+        return view('table', ['warga' => $warga2]);
     }
 }

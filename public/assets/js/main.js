@@ -49,3 +49,6 @@ if(typeof PerfectScrollbar == 'function') {
 
 // Scroll into active sidebar
 document.querySelector('.sidebar-item.active').scrollIntoView(false)
+// (function(b){b(window);var f=b(document),g=b("body");
+    
+// b('[data-toggle="sidebar"]').on("click",function(a){a.preventDefault();g.toggleClass("sidebar-mini")});

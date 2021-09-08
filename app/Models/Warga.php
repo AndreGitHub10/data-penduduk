@@ -10,13 +10,14 @@ class Warga extends Model
     use HasFactory;
 
     protected $table = 'warga';
-    protected $fillable = [
-        'nama',
-        'nik',
-        'tempat_lahir',
-        'tanggal_lahir',
-        'kontak',
-        'rt',
-        'rw'
-    ];
+    // protected $fillable = [
+    //     'id',
+    //     'nama',
+    //     'nik',
+    //     'tempat_lahir',
+    //     'tanggal_lahir',
+    //     'kontak',
+    //     'rt',
+    //     'rw'
+    // ];
 }

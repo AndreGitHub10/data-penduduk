@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
 	<div class="col-md-12 col-12">
 	    <div class="card">
 	        <div class="card-header">
@@ -9,7 +9,7 @@
 	        </div>
 	        <div class="card-content">
 	            <div class="card-body">
-	                <form class="form form-horizontal" method="post" action="{{ route('warga.store') }}" enctype="multipart/form-data" name="kirim">
+	                <form class="form form-horizontal" method="post" action="{{ route('store') }}" enctype="multipart/form-data" name="kirim">
 	                	@csrf
 	                    <div class="form-body">
 	                        <div class="row">
@@ -23,13 +23,13 @@
 	                                <label>NIK</label>
 	                            </div>
 	                            <div class="col-md-9 form-group">
-	                                <input type="text" id="nik" class="form-control" name="nik" placeholder="NIK">
+	                                <input type="text" inputmode="numeric" id="nik" class="form-control" name="nik" placeholder="NIK" maxlength="16" minlength="16">
 	                            </div>
 	                            <div class="col-md-3">
 	                                <label>Nomor KK</label>
 	                            </div>
 	                            <div class="col-md-9 form-group">
-	                                <input type="text" id="kk" class="form-control" name="kk" placeholder="Nomor KK">
+	                                <input type="number" id="kk" class="form-control" name="kk" placeholder="Nomor KK" maxlength="16" minlength="16">
 	                            </div>
 	                            <div class="col-md-3">
 	                                <label>Tempat dan Tanggal Lahir</label>
@@ -84,7 +84,7 @@
                                         <div class="modal-dialog " role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
+                                                    <h5 class="modal-title" id="myModalLabel1">Konfirmasi</h5>
                                                     <button type="button" class="close rounded-pill"
                                                         data-bs-dismiss="modal" aria-label="Close">
                                                         <i data-feather="x"></i>
@@ -116,5 +116,4 @@
 	        </div>
 	    </div>
 	</div>
-</div>
 @endsection
